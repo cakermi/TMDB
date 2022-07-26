@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TrendingMovieViewModel {
+class MovieViewModel {
     var posterPath: String?
     
     init(movie: Result) {

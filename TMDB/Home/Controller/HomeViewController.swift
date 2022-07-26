@@ -12,10 +12,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var segmentedSwitch: UISegmentedControl!
     @IBOutlet weak var homeTable: UITableView!
     
-    let tableRow = ["popularCell", "trendingCell"]
+    let tableRow = ["popularCell", "trendingCell", "discoverCell"]
     
     var popularMovieViewModel: HomePopularMovieViewModel?
-    var trendingMoviesViewModel: [TrendingMovieViewModel] = []
+    var trendingMoviesViewModel: [MovieViewModel] = []
+    var discoverMoviesViewModel: [MovieViewModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,9 +51,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func getTrendingCell(tableView: UITableView, indexPath: IndexPath) -> TrendingTableCell {
-        let id = tableRow[1]
+        let id = tableRow[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! TrendingTableCell
-        cell.bind()
+        cell.bind(delegate: self)
+        
         return cell
     }
     
@@ -65,8 +67,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension HomeViewController: TrendingDelegate {
-    func updateTrendingViewModel(update: [TrendingMovieViewModel]) {
+extension HomeViewController: MoviesDelegate {
+    func updateDiscoverViewModel(update: [MovieViewModel]) {
+        self.discoverMoviesViewModel = update
+    }
+    
+    func updateTrendingViewModel(update: [MovieViewModel]) {
         self.trendingMoviesViewModel = update
     }
 }

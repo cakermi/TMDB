@@ -11,4 +11,6 @@ protocol HomeServiceProtocol {
     func getMainMoview(token: String, completion: @escaping(MovieListResponse?, Error?) -> Void)
     
     func getTrendingMovie(token: String, completion: @escaping(MovieListResponse?, Error?) -> Void)
+    
+    func getDiscoverMovie(token: String, completion: @escaping(MovieListResponse?, Error?) -> Void)
 }

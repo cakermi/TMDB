@@ -11,19 +11,20 @@ import UIKit
 class MoviesCollectionCell: UICollectionViewCell {
     @IBOutlet weak var movieImage: UIImageView!
     
-    var posterPath: String?
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    var image: UIImage?
     
-    func bind(vm: TrendingMovieViewModel) {
-        posterPath = vm.posterPath
+    func bind(image: UIImage) {
+        self.image = image
         
         setupImage()
     }
     
     func setupImage() {
-        let DEFAULT_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
-        let POPULAR_URL  = "\(DEFAULT_IMAGE_URL)\(posterPath ?? "")"
-        
-        movieImage.load(url: URL(string: "\(POPULAR_URL)")!)
+        movieImage.image = image
         movieImage.contentMode = .scaleAspectFill
+        movieImage.isHidden = false
+        
+        loadingIndicator.stopAnimating()
     }
 }

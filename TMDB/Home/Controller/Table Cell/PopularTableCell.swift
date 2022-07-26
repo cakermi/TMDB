@@ -11,6 +11,7 @@ import UIKit
 class PopularTableCell: UITableViewCell {
     @IBOutlet weak var homeImage: UIImageView!
     @IBOutlet weak var homeTitle: UILabel!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     var popularMovie: HomePopularMovieViewModel?
     
@@ -21,6 +22,7 @@ class PopularTableCell: UITableViewCell {
     }
     
     func getPopularMovie() {
+        loadingIndicator.startAnimating()
         HomeService.shared.getMainMoview(token: RestClient.API_KEY, completion: getPopularMovieHandler(response:error:))
     }
     
@@ -38,9 +40,13 @@ class PopularTableCell: UITableViewCell {
         let DEFAULT_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
         let POPULAR_URL  = "\(DEFAULT_IMAGE_URL)\(popularMovie?.posterPath ?? "")"
         DispatchQueue.main.async { [self] in
-            homeTitle.text = popularMovie?.title ?? "-"
             homeImage.load(url: URL(string: POPULAR_URL)!)
             homeImage.contentMode = .scaleAspectFill
+            
+            homeTitle.text = popularMovie?.title ?? "-"
+            homeTitle.isHidden = false
+            
+            loadingIndicator.stopAnimating()
         }
     }
 }
