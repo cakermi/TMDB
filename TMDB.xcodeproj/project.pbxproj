@@ -30,6 +30,10 @@
 		DBB725AC288FF4EB00FEC177 /* TrendingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB725AB288FF4EB00FEC177 /* TrendingTableCell.swift */; };
 		DBB725AF288FF6CC00FEC177 /* MoviesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB725AE288FF6CC00FEC177 /* MoviesCollectionCell.swift */; };
 		DBB725B1288FF9E200FEC177 /* TrendingMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB725B0288FF9E200FEC177 /* TrendingMovieViewModel.swift */; };
+		DBB725B92890505500FEC177 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB725B82890505500FEC177 /* Detail.storyboard */; };
+		DBB725BB2890506F00FEC177 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB725BA2890506F00FEC177 /* DetailViewController.swift */; };
+		DBB725BE2890593E00FEC177 /* DetailImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB725BD2890593E00FEC177 /* DetailImageCell.swift */; };
+		DBB725C028905D2B00FEC177 /* DetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB725BF28905D2B00FEC177 /* DetailInfoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,10 @@
 		DBB725AB288FF4EB00FEC177 /* TrendingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTableCell.swift; sourceTree = "<group>"; };
 		DBB725AE288FF6CC00FEC177 /* MoviesCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCollectionCell.swift; sourceTree = "<group>"; };
 		DBB725B0288FF9E200FEC177 /* TrendingMovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMovieViewModel.swift; sourceTree = "<group>"; };
+		DBB725B82890505500FEC177 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		DBB725BA2890506F00FEC177 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		DBB725BD2890593E00FEC177 /* DetailImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageCell.swift; sourceTree = "<group>"; };
+		DBB725BF28905D2B00FEC177 /* DetailInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,8 +139,9 @@
 				DB0FCFA6288E523700C6D882 /* AppDelegate.swift */,
 				DB0FCFA8288E523700C6D882 /* SceneDelegate.swift */,
 				DB0FCFAF288E523B00C6D882 /* Assets.xcassets */,
-				DB0FCFE7288E757100C6D882 /* Home */,
 				DB0FCFD6288E543800C6D882 /* Main */,
+				DB0FCFE7288E757100C6D882 /* Home */,
+				DBB725B22890502800FEC177 /* Detail */,
 				DB0FCFDE288E748800C6D882 /* Profile */,
 				DB0FCFB1288E523B00C6D882 /* LaunchScreen.storyboard */,
 				DB0FCFB4288E523B00C6D882 /* Info.plist */,
@@ -337,6 +346,65 @@
 			path = "Collection Cell";
 			sourceTree = "<group>";
 		};
+		DBB725B22890502800FEC177 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				DBB725B72890504600FEC177 /* Service */,
+				DBB725B52890503C00FEC177 /* View Model */,
+				DBB725B42890503800FEC177 /* Model */,
+				DBB725B62890504100FEC177 /* Controller */,
+				DBB725B32890503300FEC177 /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		DBB725B32890503300FEC177 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DBB725B82890505500FEC177 /* Detail.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DBB725B42890503800FEC177 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DBB725B52890503C00FEC177 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		DBB725B62890504100FEC177 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DBB725BA2890506F00FEC177 /* DetailViewController.swift */,
+				DBB725BC2890592B00FEC177 /* Table Cell */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DBB725B72890504600FEC177 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		DBB725BC2890592B00FEC177 /* Table Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DBB725BD2890593E00FEC177 /* DetailImageCell.swift */,
+				DBB725BF28905D2B00FEC177 /* DetailInfoCell.swift */,
+			);
+			path = "Table Cell";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -446,6 +514,7 @@
 				DB0FCFB0288E523B00C6D882 /* Assets.xcassets in Resources */,
 				DB0FCFE2288E74A700C6D882 /* Profile.storyboard in Resources */,
 				DB0FCFAE288E523700C6D882 /* Main.storyboard in Resources */,
+				DBB725B92890505500FEC177 /* Detail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,12 +540,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBB725AF288FF6CC00FEC177 /* MoviesCollectionCell.swift in Sources */,
+				DBB725BE2890593E00FEC177 /* DetailImageCell.swift in Sources */,
 				DBB725A7288FBA2E00FEC177 /* Image View.swift in Sources */,
 				DBB7259F288FB1F000FEC177 /* HomeServiceProtocol.swift in Sources */,
 				DB0FCFDD288E59AA00C6D882 /* RestClient.swift in Sources */,
 				DBB725A1288FB45200FEC177 /* HomeModel.swift in Sources */,
 				DBB725AA288FBC8300FEC177 /* PopularTableCell.swift in Sources */,
 				DB0FCFAB288E523700C6D882 /* ViewController.swift in Sources */,
+				DBB725BB2890506F00FEC177 /* DetailViewController.swift in Sources */,
 				DBB725A3288FB5B800FEC177 /* HomeService.swift in Sources */,
 				DB0FCFE0288E749E00C6D882 /* ProfileViewController.swift in Sources */,
 				DB0FCFA7288E523700C6D882 /* AppDelegate.swift in Sources */,
@@ -484,6 +555,7 @@
 				DBB725AC288FF4EB00FEC177 /* TrendingTableCell.swift in Sources */,
 				DBB7259C288FAC4B00FEC177 /* HomeMainMovieViewModel.swift in Sources */,
 				DB0FCFA9288E523700C6D882 /* SceneDelegate.swift in Sources */,
+				DBB725C028905D2B00FEC177 /* DetailInfoCell.swift in Sources */,
 				DB0FCFEF288E75A500C6D882 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

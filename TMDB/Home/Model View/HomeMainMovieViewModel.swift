@@ -8,14 +8,10 @@
 import Foundation
 
 class HomePopularMovieViewModel {
-    var posterPath: String?
-    var title: String?
+    var movie: Result?
     
     init(response: MovieListResponse) {
-        let movie = response.results[0]
-        
-        posterPath = movie.posterPath
-        title = movie.title
+        self.movie = response.results[0]
     }
     
     

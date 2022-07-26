@@ -290,11 +290,22 @@
                     <connections>
                         <outlet property="homeTable" destination="ypM-fH-CPI" id="c2P-Sc-YOQ"/>
                         <outlet property="segmentedSwitch" destination="IWe-jx-Qzk" id="ynz-23-351"/>
+                        <segue destination="C4r-fu-7CN" kind="show" identifier="detailSegue" id="log-Lj-70C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ahc-wp-W5Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="249" y="90"/>
+        </scene>
+        <!--Detail-->
+        <scene sceneID="0sa-yG-xWC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Detail" id="C4r-fu-7CN" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="rer-r3-T69"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Asw-xz-cw9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1116" y="90"/>
         </scene>
     </scenes>
     <resources>

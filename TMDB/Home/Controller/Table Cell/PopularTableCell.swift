@@ -14,9 +14,11 @@ class PopularTableCell: UITableViewCell {
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     var popularMovie: HomePopularMovieViewModel?
+    var popularDelegate: PopularDelegate?
     
-    func bind(popularMovie: HomePopularMovieViewModel?) {
+    func bind(popularMovie: HomePopularMovieViewModel?, delegate: PopularDelegate?) {
         self.popularMovie = popularMovie
+        self.popularDelegate = delegate
         
         getPopularMovie()
     }
@@ -33,20 +35,25 @@ class PopularTableCell: UITableViewCell {
         }
         
         popularMovie = HomePopularMovieViewModel(response: response!)
+        popularDelegate?.updatePopularVM(update: popularMovie!)
         setupPopularUI()
     }
     
     func setupPopularUI() {
         let DEFAULT_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
-        let POPULAR_URL  = "\(DEFAULT_IMAGE_URL)\(popularMovie?.posterPath ?? "")"
+        let POPULAR_URL  = "\(DEFAULT_IMAGE_URL)\(popularMovie?.movie?.posterPath ?? "")"
         DispatchQueue.main.async { [self] in
             homeImage.load(url: URL(string: POPULAR_URL)!)
             homeImage.contentMode = .scaleAspectFill
             
-            homeTitle.text = popularMovie?.title ?? "-"
+            homeTitle.text = popularMovie?.movie?.title ?? "-"
             homeTitle.isHidden = false
             
             loadingIndicator.stopAnimating()
         }
     }
+}
+
+protocol PopularDelegate {
+    func updatePopularVM(update: HomePopularMovieViewModel)
 }
