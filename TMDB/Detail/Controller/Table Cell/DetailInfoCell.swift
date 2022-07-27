@@ -13,16 +13,25 @@ class DetailInfoCell: UITableViewCell {
     @IBOutlet weak var sectionDetail: UILabel!
     
     var detailInfo: String?
+    var releaseDate: String?
+    var isOverview: Bool = false
     
-    func bind(info: String) {
+    func bind(info: String, releaseDate: String, isOverview: Bool) {
         detailInfo = info
+        self.releaseDate = releaseDate
+        self.isOverview = isOverview
         
+        setupSectionTitle()
         setupInfo()
+    }
+    
+    func setupSectionTitle() {
+        sectionTitle.text = isOverview ? "Overview" : "Release Data"
     }
     
     func setupInfo() {
         DispatchQueue.main.async { [self] in
-            sectionDetail.text = detailInfo
+            sectionDetail.text = isOverview ? detailInfo : releaseDate
             layoutIfNeeded()
         }
     }

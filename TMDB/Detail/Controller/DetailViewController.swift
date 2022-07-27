@@ -12,7 +12,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var titleNavigation: UINavigationItem!
     @IBOutlet weak var detailTable: UITableView!
     
-    let DETAIL_ROW = ["imageCell", "overviewCell"]
+    let DETAIL_ROW = ["imageCell", "overviewCell", "releaseCell"]
     
     var movie: Result?
     var detailImage: UIImage?
@@ -80,8 +80,12 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func getDetailInfoCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DETAIL_ROW[indexPath.row], for: indexPath) as! DetailInfoCell
-        cell.bind(info: movie?.overview ?? "Movie Overview")
+        let isOverview = DETAIL_ROW[indexPath.row] == DETAIL_ROW[1]
+        let cell = tableView.dequeueReusableCell(withIdentifier: DETAIL_ROW[1], for: indexPath) as! DetailInfoCell
+        let info = movie?.overview ?? "Movie Overview"
+        let date = movie?.releaseDate ?? "Release Date"
+        
+        cell.bind(info: info , releaseDate: date, isOverview: isOverview)
         
         return cell
     }
